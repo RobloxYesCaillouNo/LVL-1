@@ -56,18 +56,17 @@ public class Jeopardy implements ActionListener {
 		// 5. Add the quizPanel to the frame
 		frame.add(quizPanel);
 		// 6. Use the createButton method to set the value of firstButton 
-		firstButton = createButton("$250");
+		firstButton = createButton("$200");
 		// 7. Add the firstButton to the quizPanel
 		quizPanel.add(firstButton);
 		// 8. Write the code inside the createButton() method below. Check that your game looks like Figure 1 in the Jeopardy Handout - http://bit.ly/1bvnvd4.
-		
 		// 9. Use the secondButton variable to hold a button using the createButton method
-		
+		secondButton = createButton("$400");
 		// 10. Add the secondButton to the quizPanel
-		
+		quizPanel.add(secondButton);
 		// 11. Add action listeners to the buttons (2 lines of code)
-	
-
+		firstButton.addActionListener(this);
+		secondButton.addActionListener(this);
 		// 12. Fill in the actionPerformed() method below
 				
 		frame.pack();
@@ -99,16 +98,15 @@ public class Jeopardy implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		// Remove this temporary message:
 		JOptionPane.showMessageDialog(null,"pressed " + ((JButton)arg0.getSource()).getText() + " button");
-
 		// Use the method that plays the jeopardy theme music.
-
 		JButton buttonPressed = (JButton) arg0.getSource();
 		// If the buttonPressed was the firstButton
-		
+		if(firstButton.equals(buttonPressed)) {
 			// Call the askQuestion() method
-			
+			 askQuestion("What keys are used to move in Roblox. (No caps)", "wasd & jump", 200);
 			// Fill in the askQuestion() method. When you play the game, the score should change.
-		
+			
+		}
 		// Or if the buttonPressed was the secondButton
 
 
@@ -121,25 +119,26 @@ public class Jeopardy implements ActionListener {
 
 	private void askQuestion(String question, String correctAnswer, int prizeMoney) {
 		// Remove this temporary message
-		JOptionPane.showMessageDialog(null, "this is where the question will be asked");
 		// Use a pop up to ask the user the question
-	
+	JOptionPane.showInputDialog(question);
 		// If the answer is correct
-		
+		if(question.equals(correctAnswer)) {
 			// Increase the score by the prizeMoney
-			
+			score = score + prizeMoney;
 			// Call the updateScore() method
-			
+			updateScore();
 			// Pop up a message to tell the user they were correct
-			
+		JOptionPane.showMessageDialog(null, "You are correct!!");
+		}
 		// Otherwise
-		
+		else {
 			// Decrement the score by the prizeMoney
-			
+			score = score - prizeMoney;
 			// Pop up a message to tell the user the correct answer
-			
+			JOptionPane.showMessageDialog(null, "Sorry the correct answer is " +correctAnswer);
 			// Call the updateScore() method
-			
+			updateScore();
+		}
 		
 	}
 
