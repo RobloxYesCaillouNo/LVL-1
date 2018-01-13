@@ -41,8 +41,6 @@ int points = 0;
 		int keyCode = e.getKeyCode();
 		// 16. make a points variable to track the score. tell the user their score at
 		// the end.
-		
-		
 		// 17. if the keyCode matches the imageIndex and "Simon says..." increase their
 		// score
 		if (keyCode == imageIndex && simonSays == 1)  {
