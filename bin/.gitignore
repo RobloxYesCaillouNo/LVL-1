@@ -10,6 +10,8 @@
 /Jeopardy.class
 /Kettle$Water.class
 /Kettle.class
+/Minion.class
+/MinionTest.class
 /Pencil.class
 /Platypus.class
 /Robot.class
@@ -24,13 +26,11 @@
 /TeaMaker.class
 /Textbook.class
 /W.png
-/s.png
 /a.png
 /d.png
+/down.png
 /left.png
 /right.png
+/s.png
 /up.png
-/down.png
-/Minions.class
-/MinionTest.class
-/Minion.class
+/typingtutor.class
