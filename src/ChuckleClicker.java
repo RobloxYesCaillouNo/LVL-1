@@ -9,8 +9,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class ChuckleClicker implements ActionListener {
+	
+	JButton button1;
+	JButton button2;
+	
 	public static void main(String[] args) {
 		ChuckleClicker c = new ChuckleClicker();
+		
 		c.makeButtons();
 	}
 
@@ -20,16 +25,26 @@ public class ChuckleClicker implements ActionListener {
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(200, 100);
-		JButton button1 = new JButton("Joke");
-		JButton button2 = new JButton("Punchline");
+		frame.add(panel);
+		 button1 = new JButton("Joke");
+		panel.add(button1);
+		 button2 = new JButton("Punchline");
+		panel.add(button2);
 		button1.addActionListener(this);
 		button2.addActionListener(this);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		JOptionPane.showMessageDialog(null, "hi");
-
+		JOptionPane.showMessageDialog(null, "(Insert text here)");
+		
+		if(e.getSource() == button1) {
+			JOptionPane.showInputDialog("What river do Roblox with pal hair go into?");
+		}
+		else if(e.getSource() == button2) {
+			JOptionPane.showInputDialog("A few users on Roblox make inappropriate user meshes."
+					+ " Ban all user meshes!");
+		}
 	}
 
 }
