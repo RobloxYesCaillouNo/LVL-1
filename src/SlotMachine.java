@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 //visit roblox.com/games to play a game on roblox!
 //¡visita roblox.com/games para jugar a roblox!
@@ -29,18 +30,24 @@ public class SlotMachine implements ActionListener {
 	}
 
 	public void create() throws MalformedURLException {
-		frame.add(panel);
 		frame.setVisible(true);
 		panel.setVisible(true);
-		frame.setSize(1000, 500);
+		// frame.setSize(1000, 500);
 		frame.setTitle("Slot machine game...lol");
-
 		frame.add(button);
+		panel.add(label1);
+		panel.add(label2);
+		panel.add(label3);
 		button.addActionListener(this);
+		frame.pack();
+		frame.add(panel);
 		roll();
 	}
 
 	public void roll() throws MalformedURLException {
+		panel.remove(label1);
+		panel.remove(label2);
+		panel.remove(label3);
 		String Cherries;
 		Cherries = "CherriesForSlotmachine.png";
 		String Bar;
@@ -49,6 +56,7 @@ public class SlotMachine implements ActionListener {
 		orange = "images.png";
 		Random gen = new Random();
 		int d = gen.nextInt(3);
+		
 		if (d == 0) {
 			label1 = createLabelImage(orange);
 		}
@@ -78,9 +86,13 @@ public class SlotMachine implements ActionListener {
 		if (b == 2) {
 			label3 = this.createLabelImage(Cherries);
 		}
+		
 		panel.add(label1);
 		panel.add(label2);
 		panel.add(label3);
+		if (d == a && a == b) {
+			System.out.println("You Win!");
+		}
 		frame.pack();
 
 	}
